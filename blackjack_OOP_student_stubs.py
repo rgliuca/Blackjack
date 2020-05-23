@@ -34,9 +34,6 @@ class Card_Deck:
   def __init__(self):
     pass
 
-  def __create_new_deck__(self):
-    pass
-
   def shuffle(self):
     pass
 
@@ -53,6 +50,17 @@ class Card_Deck:
 #########################################
 
 # create a new deck of cards
+deck=Card_Deck()
+
+card1=deck.deal_card()
+card2=deck.deal_card()
+card3=deck.deal_card()
+
+card1.print_card(print_back=True)
+card1.print_card()
+card2.print_card()
+card3.print_card()
+
 deck=Card_Deck()
 
 # deal 52 cards and print out each card (should be in order)
