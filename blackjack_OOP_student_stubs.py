@@ -35,7 +35,7 @@ class Card:
     # "A░", "2░","3░","4░","5░","6░","7░","8░","9░","10","J░","Q░","K░"
     pass
 
-  def print_card(self, print_back=False):
+  def print_card(self, show_back=False):
     # This functions prints the poker card (text) image 
     # Example: 
     # ┌─────────┐
@@ -47,15 +47,16 @@ class Card:
     # │░░░░░░░░░│
     # │░░░░░░░░░│
     # └─────────┘
-    # if the input parameter print_back is True, then you need to print
+    # if the input parameter show_back is True, then you need to print
     # a blank card (the back of a poker card)
     pass
 
-  def get_card_image(self, print_back=False):
+  def get_card_image(self, show_back=False):
     # This function returns a list of string
     # The list contains each line of the poker card's text image
     # BTW, the Card.print_card() function can call this to get the image text list
-    # and then print each line out using a loop
+    # and then print each line out using a loop.
+    # If show_back is True, then you will return the text for a blank card
     # Example:
     # ['┌─────────┐',
     #  '│░░░░░░░░░│',
@@ -101,7 +102,7 @@ card1=deck.deal_card()
 card2=deck.deal_card()
 card3=deck.deal_card()
 
-card1.print_card(print_back=True)
+card1.print_card(show_back=True)
 card1.print_card()
 card2.print_card()
 card3.print_card()
@@ -114,7 +115,7 @@ for i in range(52):
   card=deck.deal_card()
   card.print_card()
   if not i:
-    card.print_card(print_back=True)
+    card.print_card(show_back=True)
 
 # now shuffle the deck of cards
 deck.shuffle()
@@ -125,7 +126,7 @@ for i in range(52):
   card=deck.deal_card()
   card.print_card()
   if not i:
-    card.print_card(print_back=True)
+    card.print_card(show_back=True)
 
 # test the get_card_image() function
 deck.shuffle()
