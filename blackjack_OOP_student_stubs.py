@@ -23,7 +23,7 @@ class Card:
     # '♠', '♥', '♣', '♦'
     pass
 
-  def value(self):
+  def get_value(self):
     # This function computes the value of the card
     # The value of the card is just an integer value from 0 to 12
     # 0 is for Ace, 1 for 2, ... 11 for Queen and 12 is for King
