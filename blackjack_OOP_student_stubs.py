@@ -13,61 +13,42 @@ class Card:
   line_bottom='└─────────┘\t'
 
   def __init__(self, value):
-    # This function initializes the actual card value (a value from 0 to 51)
-    pass
+    # Can't really do error checking of value here, assume value is within 0 and 51
+    # The proper way of implementing this is with raising an exception when value is out of range
+    self.card_value=value
 
   def get_suit_image(self):
-    # This function returns one of the card suit image, depends on the card's value
-    # You'll have to compute the suit based on the value of the card and 
-    # then return one of the element from the card_suit_image list:
-    # '♠', '♥', '♣', '♦'
-    pass
+    return self.card_suit_image[self.card_value//13]
 
   def get_value(self):
-    # This function computes the value of the card
-    # The value of the card is just an integer value from 0 to 12
-    # 0 is for Ace, 1 for 2, ... 11 for Queen and 12 is for King
-    pass
+    # This is specific to the implementation of BJ
+    # To keep it simple for the students, don't use inheritance here, but technically, inheritance is needed 
+    # because interpretation of a card value is game specific
+    # maybe just let the BJ_hand implement value of a card
+    # Thjis method only returns a value from 0-12 indicating "A" - "K"
+    return self.card_value%13
 
   def get_rank_image(self):
-    # This function computes the rank based on the card value and returns a
-    # string of the following form:
-    # "A░", "2░","3░","4░","5░","6░","7░","8░","9░","10","J░","Q░","K░"
-    pass
+    return self.card_rank[self.card_value%13]
 
   def print_card(self, show_back=False):
-    # This functions prints the poker card (text) image 
-    # Example: 
-    # ┌─────────┐
-    # │░░░░░░░░░│
-    # │░J░░░░░░░│
-    # │░░░░░░░░░│
-    # │░░░░♥░░░░│
-    # │░░░░░░░░░│
-    # │░░░░░░░░░│
-    # │░░░░░░░░░│
-    # └─────────┘
-    # if the input parameter show_back is True, then you need to print
-    # a blank card (the back of a poker card)
-    pass
+    # prints the poker card
+    for line in self.get_card_image(show_back):
+      print(line)
 
   def get_card_image(self, show_back=False):
-    # This function returns a list of string
-    # The list contains each line of the poker card's text image
-    # BTW, the Card.print_card() function can call this to get the image text list
-    # and then print each line out using a loop.
-    # If show_back is True, then you will return the text for a blank card
-    # Example:
-    # ['┌─────────┐',
-    #  '│░░░░░░░░░│',
-    #  '│░J░░░░░░░│',
-    #  '│░░░░░░░░░│',
-    #  '│░░░░♥░░░░│',
-    #  '│░░░░░░░░░│',
-    #  '│░░░░░░░░░│',
-    #  '│░░░░░░░░░│',
-    #  '└─────────┘']
-    pass
+    # returns the card's text, line by line
+    # can be used by the caller to print multiple cards line by line
+    ct=[]
+    ct.append(self.line_top)
+    ct.append(self.line_middle)
+    ct.append(self.line_middle if show_back else \
+      self.line_rank_left+self.get_rank_image()+self.line_rank_right)
+    ct.append(self.line_middle if show_back else \
+      self.line_suit_left+self.get_suit_image()+self.line_suit_right)
+    ct+=[self.line_middle]*3
+    ct.append(self.line_bottom)
+    return ct
 
 class Card_Deck:
   def __init__(self):
@@ -88,6 +69,27 @@ class Card_Deck:
   def get_cards_remaining(self):
     # This function returns the # of cards left in the deck
     pass
+
+class BJ_Game:
+  def __init__(self):
+    self.poker_cards=Card_Dec()
+    self.player=BJ_Hand()
+    self.dealer=BJ_Hand()
+    self.poker_cards.shuffle()
+
+  def play(self):
+    while True:
+      if self.poker_cards.get_num_cards_remaining()>=4:
+        for i in range(2):
+          card=self.poker_cards.deal_card()
+          self.player.add_card(card)
+          
+          self.player.add_card(self.poker_cards.deal_card())
+          self.dealer.add_card(self.poker_cards.deal_card())
+
+
+
+game=BJ_Game()
 
 
 
