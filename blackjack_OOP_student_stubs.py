@@ -50,6 +50,35 @@ class Card:
     ct.append(self.line_bottom)
     return ct
 
+class BJ_Hand:
+  # This class implements a hand of BJ cards with following functionality
+  #   1. printing the cards out
+  #   2. Computes the hand's total value, whether the hand is a bust, etc
+  card_value=[1,2,3,4,5,6,7,8,9,10,10,10,10]
+
+  def __init__(self, cards=None):
+    pass
+
+  def print(self, msg="", col_size=5, cover_first_card=False):
+    # prints the entire hand horizontally, how many cards across? 
+    pass
+          
+  def score(self):
+    # returns the value of the entire hand
+    pass
+
+  def is_bust(self):
+    # returns True/False whether the hand is a bust
+    pass
+
+  def get_num_cards(self):
+    pass
+
+  def add_card(self, card):
+    pass
+
+
+
 class Card_Deck:
   def __init__(self):
     # This function initializes the deck
@@ -70,6 +99,43 @@ class Card_Deck:
     # This function returns the # of cards left in the deck
     pass
 
+class BJ_Hand:
+  # This class implements a hand of cards with following attributes
+  #   1. add a card to the hand
+  #   2. check if the hand is bust or not
+  #   3. get number of cards in hand
+  #   4. printing the cards out
+  #   5. Computes the hand's total value, whether the hand is a bust, etc
+
+  # card_value is a list to help you compute the value of a card
+  card_value=[1,2,3,4,5,6,7,8,9,10,10,10,10]
+
+  # The init function just creates the list to store the Card objects
+  def __init__(self):
+    pass
+
+  # prints the entire hand horizontally, if the number of cards
+  # exceeds col_size, then you should print subsequent cards on the next row
+  def print(self, col_size=5, cover_first_card=False):
+    pass
+      
+  # returns the Blackjack game score of this hand
+  def score(self):
+    pass
+
+  # returns True/False whether the hand is a bust
+  def is_bust(self):
+    pass
+
+  # returns the number of cards 
+  def get_num_cards(self):
+    pass
+
+  # adds a card to the current hand, the input parameter card is a Card class
+  # object
+  def add_card(self, card):
+    pass
+
 class BJ_Game:
   def __init__(self):
     self.poker_cards=Card_Dec()
@@ -87,10 +153,7 @@ class BJ_Game:
           self.player.add_card(self.poker_cards.deal_card())
           self.dealer.add_card(self.poker_cards.deal_card())
 
-
-
 game=BJ_Game()
-
 
 
 #########################################
