@@ -169,10 +169,7 @@ class BJ_Game:
           self.player.print()
           print("Dealer's Hand: ")
           self.dealer.print(cover_first_card=True)
-          state=1
-          if self.player.score()==21:
-            # player has Blackjack!
-            state=3
+          state=3 if self.player.score()==21 else 1 # set to state=3 if player has a blackjack in hand
         else:
           print("Not enough cards, only", self.deck.get_cards_remaining(), "card(s) left in the deck.")
           state=4
