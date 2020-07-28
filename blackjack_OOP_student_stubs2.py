@@ -87,7 +87,6 @@ class BJ_Hand:
 
   def print(self, col_size=2, cover_first_card=False):
     # prints the entire hand horizontally, how many cards across? 
-    print(msg)
     if len(self.cards_in_hand)==0: return
     # Let's build a 2D list of card text images, the rows contain each card's 
     # text
