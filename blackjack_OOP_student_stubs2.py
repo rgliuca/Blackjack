@@ -116,7 +116,7 @@ class BJ_Game:
   def __init__(self):
     # create the card deck and shuffle it
     self.deck=Card_Deck()
-    self.cards.shuffle()
+    self.deck.shuffle()
 
   #Total states: 5
 
