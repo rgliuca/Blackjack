@@ -107,7 +107,7 @@ class Card:
 
         def deal_card(self):
             # This function deals a card from the deck 
-            # Just pot a card from the list and return it 
+            # Just put a card from the list and return it 
             pass
 
         def get_cards_remaining(self):
