@@ -65,7 +65,7 @@ class Card:
         '''
         pass
 
-    class BJ_Hand:
+    class BJHand:
         # This class implements a hand of BJ cards with following functionality
         #   1. printing the cards out
         #   2. Computes the hand's total value, whether the hand is a bust, etc
@@ -94,7 +94,7 @@ class Card:
 
 
 
-    class Card_Deck:
+    class CardDeck:
         def __init__(self):
             # This function initializes the deck
             # You should create a list of 52 cards in sequence from 0 to 51
@@ -114,7 +114,7 @@ class Card:
             # This function returns the # of cards left in the deck
             pass
 
-    class BJ_Game:
+    class BJGame:
         def __init__(self):
             pass
 
@@ -127,7 +127,7 @@ class Card:
     #########################################
 
     # create a new deck of cards
-    deck = Card_Deck()
+    deck = CardDeck()
 
     card1 = deck.deal_card()
     card2 = deck.deal_card()
@@ -138,12 +138,12 @@ class Card:
     card2.print_card()
     card3.print_card()
 
-    deck=Card_Deck()
+    deck = CardDeck()
 
     # deal 52 cards and print out each card (should be in order)
     for i in range(52):
       print("i:",i)
-      card=deck.deal_card()
+      card = deck.deal_card()
       card.print_card()
       if not i:
         card.print_card(show_back=True)
@@ -154,15 +154,15 @@ class Card:
     # deal 52 cards and print out each card (should be shuffled, random)
     for i in range(52):
       print("i:",i)
-      card=deck.deal_card()
+      card = deck.deal_card()
       card.print_card()
       if not i:
         card.print_card(show_back=True)
 
     # test the get_card_image() function
     deck.shuffle()
-    card=deck.deal_card()
-    card_text=card.get_card_image()
+    card = deck.deal_card()
+    card_text = card.get_card_image()
     print("Card Text:")
     print(card_text)
 
