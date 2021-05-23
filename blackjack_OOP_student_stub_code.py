@@ -71,11 +71,15 @@ class Card:
         #   2. Computes the hand's total value, whether the hand is a bust, etc
         CARD_VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-        def __init__(self, cards=None):
+        def __init__(self, name):
+            self._name = name
             pass
 
-        def print(self, msg="", col_size=5, cover_first_card=False):
-          # prints the entire hand horizontally, how many cards across? 
+        def print(self, col_size=5, cover_first_card=False):
+            # prints the entire hand horizontally, how many cards across? 
+            print(self._name)
+            
+            # print the rest of the hand (cards)
             pass
                 
         def score(self):
